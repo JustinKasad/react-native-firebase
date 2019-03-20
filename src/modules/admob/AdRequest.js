@@ -20,6 +20,11 @@ export default class AdRequest {
     return this;
   }
 
+  addCustomTargeting(customTargeting: object) {
+    this._props.customTargeting = customTargeting;
+    return this;
+  }
+
   setBirthday() {
     // TODO
   }

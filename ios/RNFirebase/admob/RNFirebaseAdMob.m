@@ -93,13 +93,14 @@ RCT_EXPORT_METHOD(clearInterstitial:
     return @[ADMOB_INTERSTITIAL_EVENT, ADMOB_REWARDED_VIDEO_EVENT];
 }
 
-+ (GADRequest *)buildRequest:(NSDictionary *)request {
-    GADRequest *builder = [GADRequest request];
++ (DFPRequest *)buildRequest:(NSDictionary *)request {
+    DFPRequest *builder = [DFPRequest request];
 
     if (request[@"tagForChildDirectedTreatment"]) [builder tagForChildDirectedTreatment:(BOOL) request[@"tagForChildDirectedTreatment"]];
     if (request[@"contentUrl"]) builder.contentURL = request[@"contentUrl"];
     if (request[@"requestAgent"]) builder.requestAgent = request[@"requestAgent"];
     if (request[@"keywords"]) builder.keywords = request[@"keywords"];
+    if (request[@"customTargeting"]) builder.customTargeting = request[@"customTargeting"];
 
     if (request[@"testDevices"]) {
         NSArray *devices = request[@"testDevices"];
